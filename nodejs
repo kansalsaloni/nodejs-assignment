@@ -1,0 +1,174 @@
+Ques 1=> In this coding challenge, your task is to create a package&json file for your project using the npm init command 
+ANS=> Run the npm init command in the terminal.
+Follow the prompts and provide the requested information. You can press Enter to accept the default values or enter your own values as needed
+Create a new folder named "01"
+ You can use the CLI command mkdir on Unix-based systems or md command on Windows:
+ Move the generated package.json file into the "01" folder. You can use the CLI command mv on Unix-based systems or move command on Windows:
+ 
+ ################################################################################################################################################
+ QUES 2=>In the same project directory created in the above assignment, your task is to create a new file index&js and using the fs module add information about
+ Node&js architecture to a new file nodejs_architecture&txt& Below are the expected files in the project folder&
+
+  ANS=>Create a new file named index.js
+  In the index.js file, write the following code:
+  const fs = require('fs');
+
+const architectureInfo = `
+Node.js is an open-source, cross-platform JavaScript runtime environment
+that executes JavaScript code outside of a web browser. It allows you to
+build scalable and high-performance applications. Node.js uses an event-driven,
+non-blocking I/O model, which makes it lightweight and efficient.
+`;
+
+fs.writeFile('nodejs_architecture.txt', architectureInfo, (err) => {
+  if (err) {
+    console.error('Error writing file:', err);
+  } else {
+    console.log('Node.js architecture information added to nodejs_architecture.txt');
+  }
+});
+
+
+ ################################################################################################################################################
+ QUES 3=>use the fs module to read the content of nodejs_architecture&txt and print the content to the console&
+ ANS 3=> const fs = require('fs');
+
+fs.readFile('nodejs_architecture.txt', 'utf8', (err, data) => {
+  if (err) {
+    console.error('Error reading file:', err);
+  } else {
+    console.log('Content of nodejs_architecture.txt:');
+    console.log(data);
+  }
+});
+ 
+  ################################################################################################################################################
+ QUES 4=>
+ ANS4=>const fs = require('fs');
+
+const additionalData = `
+Advantages of Node.js:
+- Non-blocking and Asynchronous: Node.js uses an event-driven, non-blocking I/O model, allowing it to handle concurrent requests efficiently.
+- Scalable: Node.js is designed to handle a large number of simultaneous connections with minimal resource usage.
+- JavaScript Everywhere: With Node.js, you can use JavaScript on both the client and server sides, allowing for easy code sharing and reuse.
+`;
+
+fs.appendFile('nodejs_architecture.txt', additionalData, (err) => {
+  if (err) {
+    console.error('Error appending to file:', err);
+  } else {
+    console.log('Additional data appended to nodejs_architecture.txt');
+    console.log('Updated content of nodejs_architecture.txt:');
+
+    // Read the updated content and print it to the console
+    fs.readFile('nodejs_architecture.txt', 'utf8', (err, data) => {
+      if (err) {
+        console.error('Error reading file:', err);
+      } else {
+        console.log(data);
+      }
+    });
+  }
+});
+ 
+ 
+ 
+  ################################################################################################################################################
+ QUES 5=>
+ ANS5=>const fs = require('fs');
+
+fs.unlink('nodejs_architecture.txt', (err) => {
+  if (err) {
+    console.error('Error deleting file:', err);
+  } else {
+    console.log('File Deleted Successfully');
+  }
+});
+
+ 
+ 
+  ################################################################################################################################################
+ QUES 6=>
+ANS 6=>const os = require('os');
+
+const osName = os.type();
+const osRelease = os.release();
+
+console.log('OS Name:', osName);
+console.log('OS Release Version:', osRelease);
+ 
+ 
+ 
+  ################################################################################################################################################
+ ANS 7=>
+ const http = require('http');
+
+const port = 3000; // Set the desired port number
+
+const server = http.createServer((req, res) => {
+  res.statusCode = 200;
+  res.setHeader('Content-Type', 'text/plain');
+  res.end('I Am Happy To Learn Full Stack Web Development From PW Skills!');
+});
+
+server.listen(port, () => {
+  console.log(`Server running at http://localhost:${port}/`);
+});
+
+ 
+ 
+ 
+  ################################################################################################################################################
+ ANS 8=>
+ const EventEmitter = require('events');
+
+class SubscriptionManager extends EventEmitter {}
+
+const subscriptionManager = new SubscriptionManager();
+
+subscriptionManager.on('subscribe', () => {
+  console.log('User has subscribed');
+});
+
+// Simulate triggering the 'subscribe' event
+subscriptionManager.emit('subscribe');
+
+ 
+ 
+  ################################################################################################################################################
+ ANS 9=>
+ const EventEmitter = require('events');
+
+const myEmitter = new EventEmitter();
+
+const eventHandler = () => {
+  console.log('Event handler called');
+};
+
+myEmitter.on('myEvent', eventHandler);
+
+myEmitter.emit('myEvent'); // Event handler called
+
+myEmitter.removeListener('myEvent', eventHandler);
+
+myEmitter.emit('myEvent'); // No output, as the event handler has been removed
+
+ 
+ 
+ 
+  ################################################################################################################################################
+ ANS 10=>
+ const EventEmitter = require('events');
+
+const myEmitter = new EventEmitter();
+
+const maxListeners = myEmitter.getMaxListeners();
+console.log('Current maximum number of listeners:', maxListeners);
+
+myEmitter.setMaxListeners(51);
+console.log('Maximum number of listeners set to:', myEmitter.getMaxListeners());
+
+ 
+ 
+ 
+  ################################################################################################################################################
